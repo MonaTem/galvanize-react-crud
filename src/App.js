@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ProductsList from './ProductsList';
+import NewProductForm from './NewProductForm';
 
 class App extends Component {
   constructor() {
@@ -8,6 +9,7 @@ class App extends Component {
     this.state = {
       products: []
     }
+    this.getProducts = this.getProducts.bind(this);
   }
 
   async getProducts() {
@@ -25,6 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <h2>Products List</h2>
+        <NewProductForm getProducts={this.getProducts}/>
         <ProductsList products={this.state.products} />
       </div>
     );
