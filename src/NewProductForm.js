@@ -21,7 +21,9 @@ class NewProductForm extends React.Component {
       }
     };
     const response = await fetch('http://localhost:8082/api/products', options);
+    console.log(response);
     this.setState({ name: '', priceInCents: 0 });
+    console.log('Created product and reset state');
     this.props.getProducts();
   }
 
@@ -29,7 +31,9 @@ class NewProductForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit( event ) {
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log('Submitting');
     this.createProduct({
       name: this.state.name,
       priceInCents: this.state.priceInCents
