@@ -28,7 +28,7 @@ class App extends Component {
       <div className="App">
         <h2>Products List</h2>
         <NewProductForm getProducts={this.getProducts}/>
-        <ProductsList products={this.state.products} />
+        <ProductsList products={this.state.products} get={this.getProducts} />
       </div>
     );
   }
